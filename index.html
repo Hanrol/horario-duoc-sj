@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Planificador interactivo de horarios para Duoc UC sede San Joaquín." />
+  <title>Armador de horario — Duoc UC San Joaquín</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-block">
+      <div class="brand-mark" aria-hidden="true">
+        <span class="brand-mark-main">DUOC</span>
+        <span class="brand-mark-sub">SAN JOAQUÍN</span>
+      </div>
+      <div>
+        <p class="eyebrow">Oferta académica · 2.º semestre 2026</p>
+        <h1>Armador de horario</h1>
+        <p class="subtitle">Busca tus ramos, compara profesores y detecta choques automáticamente.</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="pdfBtn" class="button secondary">Exportar PDF</button>
+      <button id="shareBtn" class="button light">Copiar enlace</button>
+      <button id="clearBtn" class="button danger">Limpiar horario</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel controls">
+      <h2>1. Filtra tu malla</h2>
+      <label>Carrera<select id="careerSelect"><option value="">Todas</option></select></label>
+      <label>Jornada<select id="shiftSelect"><option value="">Todas</option></select></label>
+      <label>Nivel<select id="levelSelect"><option value="">Todos</option></select></label>
+      <label>Horario<select id="scheduleSelect"><option value="">Cualquier horario</option></select></label>
+      <label>Nombre o sigla de la asignatura<input id="courseSearchInput" type="search" placeholder="Ej: Base de Datos, BDY1101..." /></label>
+      <label>Profesor<input id="teacherSearchInput" type="search" placeholder="Ej: Juan Pérez..." /></label>
+
+      <div class="result-heading">
+        <h2>2. Elige secciones</h2>
+        <span id="resultCount" class="badge">0</span>
+      </div>
+      <div id="courseList" class="course-list"></div>
+    </aside>
+
+    <section class="workspace">
+      <div id="alerts" aria-live="polite"></div>
+      <section class="panel summary-panel">
+        <div class="summary-title">
+          <div><p class="eyebrow">Resumen</p><h2>Tu horario</h2></div>
+          <span id="selectedCount" class="badge">0 secciones</span>
+        </div>
+        <div id="stats" class="stats"></div>
+      </section>
+
+      <section class="panel calendar-panel">
+        <div class="calendar-heading"><div><p class="eyebrow">Vista semanal</p><h2>Calendario</h2></div><span class="calendar-note">Lunes a sábado</span></div>
+        <div class="mobile-day-tabs" id="mobileDayTabs" aria-label="Seleccionar día"></div>
+        <div class="calendar-scroll">
+          <div id="calendar" class="calendar"></div>
+        </div>
+        <div id="mobileDayView" class="mobile-day-view"></div>
+      </section>
+
+      <section class="panel selected-panel">
+        <h2>Secciones seleccionadas</h2>
+        <div id="selectedList" class="selected-list empty">Todavía no has agregado secciones.</div>
+      </section>
+    </section>
+  </main>
+
+  <template id="courseTemplate">
+    <article class="course-card">
+      <div class="course-title-row"><div><strong class="course-name"></strong><span class="course-code"></span></div><span class="course-level"></span></div>
+      <div class="section-options"></div>
+    </article>
+  </template>
+  <script src="app.js"></script>
+</body>
+</html>

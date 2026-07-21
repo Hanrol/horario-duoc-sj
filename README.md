@@ -5,7 +5,7 @@
 ### Duoc UC · Sede San Joaquín
 
 Planificador web para buscar asignaturas, comparar secciones y construir un horario sin choques.
-Se encuentra alojada en [booterman98.github.io/malla-interactiva](booterman98.github.io/malla-interactiva)
+Se encuentra alojada en [hanrol.github.io/horario-duoc-sj/](hanrol.github.io/horario-duoc-sj/)
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
